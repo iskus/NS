@@ -1,10 +1,9 @@
-CREATE TABLE nstree (
-id INT(10) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-left_key INT(10) NOT NULL DEFAULT 0,
-right_key INT(10) NOT NULL DEFAULT 0,
-lvl INT(10) NOT NULL DEFAULT 0,
-title VARCHAR(150) NOT NULL DEFAULT '',
-KEY left_key (left_key, right_key, lvl)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-INSERT INTO nstree (left_key,right_key,lvl,title) VALUES (1, 2, 0, 'root');
+CREATE TABLE `nestedsets` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `left_key` int(11) NOT NULL,
+  `right_key` int(11) NOT NULL,
+  `lvl` int(11) NOT NULL DEFAULT '0',
+  `title` varchar(150) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `left_key` (`left_key`,`right_key`,`lvl`)
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
